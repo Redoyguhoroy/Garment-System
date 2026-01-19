@@ -1,0 +1,167 @@
+:root{
+  --bg: #f4f7fb;
+  --surface: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --border: rgba(2, 6, 23, 0.10);
+
+  --primary: #2563eb;
+  --primary-soft: rgba(37, 99, 235, 0.12);
+
+  --success: #16a34a;
+  --success-soft: rgba(22, 163, 74, 0.14);
+
+  --danger: #dc2626;
+  --danger-soft: rgba(220, 38, 38, 0.14);
+
+  --radius: 18px;
+  --radius-sm: 12px;
+
+  --shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+  --shadow-sm: 0 8px 20px rgba(15, 23, 42, 0.06);
+}
+
+/* background */
+body{
+  background: radial-gradient(1200px 500px at 10% 0%, rgba(37,99,235,.10), transparent 60%),
+              radial-gradient(900px 500px at 90% 0%, rgba(22,163,74,.08), transparent 55%),
+              var(--bg) !important;
+  color: var(--text);
+}
+
+/* navbar premium look */
+.navbar{
+  background: rgba(17, 24, 39, 0.92) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 10px 25px rgba(0,0,0,.18);
+}
+
+.navbar-brand{
+  font-weight: 900;
+  letter-spacing: .2px;
+}
+
+/* cards */
+.card{
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius) !important;
+  box-shadow: var(--shadow-sm) !important;
+  background: var(--surface);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.card:hover{
+  transform: translateY(-2px);
+  box-shadow: var(--shadow) !important;
+}
+.card .card-body{
+  padding: 18px;
+}
+
+/* buttons */
+.btn{
+  border-radius: var(--radius-sm) !important;
+}
+.btn-primary{
+  background: linear-gradient(135deg, #2563eb, #1d4ed8) !important;
+  border: 0 !important;
+  box-shadow: 0 12px 28px rgba(37,99,235,.25);
+}
+.btn-outline-primary,
+.btn-outline-secondary,
+.btn-outline-dark{
+  background: #fff;
+}
+
+/* tables */
+.table{
+  margin-bottom: 0;
+}
+.table thead th{
+  font-size: .85rem;
+  color: var(--muted);
+  border-top: 0;
+  border-bottom: 1px solid var(--border);
+}
+.table tbody td{
+  border-top: 1px solid var(--border);
+  vertical-align: middle;
+}
+.table-striped > tbody > tr:nth-of-type(odd) > *{
+  background-color: rgba(2,6,23,.02);
+}
+.table-striped > tbody > tr:hover > *{
+  background-color: rgba(37,99,235,.06);
+}
+
+/* badges */
+.badge{
+  border-radius: 999px !important;
+  padding: .48em .7em;
+  font-weight: 800;
+}
+.badge-soft{
+  background: var(--primary-soft);
+  color: var(--primary);
+  border: 1px solid rgba(37,99,235,.18);
+}
+.badge-soft-success{
+  background: var(--success-soft);
+  color: var(--success);
+  border: 1px solid rgba(22,163,74,.18);
+}
+.badge-soft-danger{
+  background: var(--danger-soft);
+  color: var(--danger);
+  border: 1px solid rgba(220,38,38,.18);
+}
+
+/* stat cards */
+.stat-card .stat-title{ color: var(--muted); font-size: .9rem; }
+.stat-card .stat-value{ font-size: 2rem; font-weight: 900; line-height: 1.1; }
+.stat-card .stat-icon{
+  width: 46px; height: 46px;
+  border-radius: 14px;
+  display: grid; place-items: center;
+  background: var(--primary-soft);
+  border: 1px solid rgba(37,99,235,.18);
+}
+
+/* sidebar layout (if you use it) */
+.app-shell{ display:flex; gap:16px; min-height: calc(100vh - 56px); }
+.sidebar{
+  width: 260px;
+  background: #0b1220;
+  color: rgba(255,255,255,.85);
+  border-radius: 20px;
+  padding: 14px;
+  box-shadow: 0 20px 55px rgba(0,0,0,.22);
+}
+.sidebar .side-title{ color:#fff; font-weight:900; margin: 6px 8px 14px; }
+.sidebar a{
+  display:flex; align-items:center; gap:10px;
+  padding: 10px 12px; margin: 6px 0;
+  border-radius: 16px;
+  color: rgba(255,255,255,.85);
+  text-decoration:none;
+}
+.sidebar a:hover{ background: rgba(255,255,255,.08); color:#fff; }
+.sidebar a.active{ background: rgba(37,99,235,.25); color:#fff; border: 1px solid rgba(37,99,235,.22); }
+.main{ flex:1; }
+
+@media (max-width: 991px){
+  .app-shell{ display:block; }
+  .sidebar{ width:100%; margin-bottom: 12px; }
+}
+
+/* dark mode support */
+body.dark{
+  --bg: #0b1220;
+  --surface: #0f172a;
+  --text: rgba(255,255,255,.92);
+  --muted: rgba(255,255,255,.62);
+  --border: rgba(255,255,255,.10);
+}
+body.dark .card{ background: var(--surface); }
+body.dark .table thead th{ color: rgba(255,255,255,.65); }
+body.dark .table-striped > tbody > tr:nth-of-type(odd) > *{ background-color: rgba(255,255,255,.03); }
